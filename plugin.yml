@@ -1,0 +1,11 @@
+name: WaterSpawn
+author: TheRoyalBlock
+api: [3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10]
+version: 1.0
+main: TheRoyalBlock/WaterSpawn/Main
+
+# Commands: If your plugin has commands: Do this:
+command:
+	waterspawn:
+		description: The main waterspawn command
+		usage: /waterspawn <add|setspawn>
