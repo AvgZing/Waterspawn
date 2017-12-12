@@ -1,5 +1,5 @@
 # Waterspawn
-Waterspawn plugin, as commissioned
+Waterspawn plugin, as commissioned for $9.99
 
 ## Commands:
 <br>
