@@ -21,7 +21,7 @@ class waterspawnCommand extends VanillaCommand {
           				$level = $sender->getLevel();
           				$main = \TheRoyalBlock\Waterspawn\Main::getInstance();
           				$this->levels = $main::$levelsconfig;
-          				$this->levels->set(array(
+          				$this->levels->set($level, array(
           				"world" => $level,
           				));
           				$sender->sendMessage(self::PREFIX . "World " . $level . " has been added to the waterspawn list!");
