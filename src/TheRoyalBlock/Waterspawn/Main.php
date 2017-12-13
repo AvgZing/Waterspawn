@@ -96,7 +96,7 @@ class Main extends PluginBase implements Listener{
     $p = $event->getPlayer();
     if($event->getBlock()->getId() === 8 || $event->getBlock()->getID() === 9){
       $world = $levelsconfig->get($p->getLevel());
-      //if(the player's level is listed in $levelsconfig){
+      if($levelconfig->exists($p->getLevel()){
 	    $x = $spawnconfig->get("x");
 	    $y = $spawnconfig->get("y");
 	    $z = $spawnconfig->get("z");
