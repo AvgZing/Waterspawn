@@ -104,7 +104,6 @@ class Main extends PluginBase implements Listener{
 	    $p->setLevel($level);
 	    $p->teleport(new Position($x, $y, $z);
       }else{
-	return true;
       }
     }else{
      return true;
