@@ -79,7 +79,7 @@ class Main extends PluginBase implements Listener{
     		self::$instance = $this;
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getLogger()->info(self::PREFIX . "Loading...");
-		$levelsconfig = new Config($this->getDataFolder() . "levels.yml", Config::YAML);
+		$levelsconfig = new Config($this->getDataFolder() . "levels.yml", Config::YAML, array());
 		$spawnconfig = new Config($this->getDataFolder() . "spawn.yml", Config::YAML);
 		$this->getServer()->getCommandMap()->register('waterspawn', new \TheRoyalBlock\Waterspawn\Commands\waterspawnCommand($this));
 		$this->getServer()->getLogger()->info(self::PREFIX . "Everything has loaded!");  
