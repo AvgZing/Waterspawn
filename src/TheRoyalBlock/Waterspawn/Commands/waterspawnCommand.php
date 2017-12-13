@@ -18,15 +18,28 @@ class waterspawnCommand extends VanillaCommand {
 		if($sender instanceof Player){
 			if($sender->isOp() === true){
 				if($args[0] == 'add'){
-          $level = $sender->getLevel();
-          $main = \TheRoyalBlock\Waterspawn\Main::getInstance();
-          $this->levels = $main::$levelsconfig;
-          $this->levels->set(array(
-          "world" => $level,
-          ));
-          $sender->sendMessage(self::PREFIX . "World " . $level . " has been added to the waterspawn list!");
-        }elsif{$args[0] == 'setspawn'){
-        //todo
+          				$level = $sender->getLevel();
+          				$main = \TheRoyalBlock\Waterspawn\Main::getInstance();
+          				$this->levels = $main::$levelsconfig;
+          				$this->levels->set(array(
+          				"world" => $level,
+          				));
+          				$sender->sendMessage(self::PREFIX . "World " . $level . " has been added to the waterspawn list!");
+      				}elseif{$args[0] == 'setspawn'){
+        				$level = $sender->getLevel();
+					$main = \TheRoyalBlock\Waterspawn\Main::getInstance();
+					$this->spawn = $main::$spawnconfig;
+					$x = $sender->x;
+                    			$y = $sender->y;
+              				$z = $sender->z;
+                    			$level = $sender->getLevel();
+					$this->getConfig()->set("x", $x);
+					$this->getConfig()->set("y", $y);
+					$this->getConfig()->set("z", $z);
+					$this->getConfig()->set("level", $level);
+				}else{
+					return false;
+				}
 			return true;
 			} else {
 				$sender->sendMessage(self::PREFIX . "You must be Op to run this Command!");
