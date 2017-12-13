@@ -79,7 +79,8 @@ class Main extends PluginBase implements Listener{
     		self::$instance = $this;
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getLogger()->info(self::PREFIX . "Loading...");
-		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+		$levelsconfig = new Config($this->getDataFolder() . "levels.yml", Config::YAML);
+		$spawnconfig = new Config($this->getDataFolder() . "spawn.yml", Config::YAML);
 		$this->getServer()->getCommandMap()->register('waterspawn', new \TheRoyalBlock\Waterspawn\Commands\waterspawnCommand($this));
 		$this->getServer()->getLogger()->info(self::PREFIX . "Everything has loaded!");  
 	}
@@ -94,10 +95,21 @@ class Main extends PluginBase implements Listener{
   public function onPlayerInteract(PlayerInteractEvent $event){
     $p = $event->getPlayer();
     if($event->getBlock()->getId() === 8 || $event->getBlock()->getID() === 9){
-      //teleport player
-     }else{
+      $world = $levelsconfig->get($p->getLevel());
+      //if(the player's level is listed in $levelsconfig){
+	    $x = $spawnconfig->get("x");
+	    $y = $spawnconfig->get("y");
+	    $z = $spawnconfig->get("z");
+	    $level = $spawnconfig->get("level");
+	    $p->setLevel($level);
+	    $p->teleport(new Position($x, $y, $z);
+      }else{
+	return true;
+      }
+    }else{
      return true;
-     }
+    }
+  }
   public static function getInstance(){
     return self::$instance;
   }
