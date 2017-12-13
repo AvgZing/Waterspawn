@@ -103,7 +103,6 @@ class Main extends PluginBase implements Listener{
 	    $level = $spawnconfig->get("level");
 	    $p->setLevel($level);
 	    $p->teleport(new Position($x, $y, $z);
-      }else{
       }
     }else{
      return true;
