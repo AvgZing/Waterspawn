@@ -75,7 +75,8 @@ class Main extends PluginBase implements Listener{
     
 	const PREFIX = C::GOLD . "[" . C::BLUE . "Waterspawn" . C::GOLD . "] ". C::RESET . C::WHITE;
 	
-	public function onEnable(){
+	public function onEnable() : void {
+    		self::$instance = $this;
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getServer()->getLogger()->info(self::PREFIX . "Loading...");
 		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
@@ -97,4 +98,7 @@ class Main extends PluginBase implements Listener{
      }else{
      return true;
      }
+  public static function getInstance(){
+    return self::$instance;
+  }
 }
